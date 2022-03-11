@@ -173,32 +173,32 @@ public class JuegoPrimitiva {
         switch (cont){
             case 3:
                 cateCinco++;
-                System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria 5");
+                System.out.println("Tienes : " + cont + " numeros iguales, has ganado un premio de categoria 5");
                 return true;
             case 4:
                 cateQuat++;
-                System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria 4");
+                System.out.println("Tienes : " + cont + " numeros iguales, has ganado un premio de categoria 4");
                 return true;
             case 5:
                 if(numerosUser.getNumeroComp() == numerosComputer.getNumeroComp()){
-                    System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria 2");
+                    System.out.println("Tienes : " + cont + " numeros iguales, has ganado un premio de categoria 2");
                     cateDos++;
                     return true;
                 }
                 cateTres++;
-                System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria 3");
+                System.out.println("Tienes : " + cont + " numeros iguales, has ganado un premio de categoria 3");
                 return true;
             case 6:
                 if(numerosUser.getNumReintegro() == numerosComputer.getNumReintegro()){
-                    System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria ESPECIAL");
+                    System.out.println("Tienes : " + cont + " numeros iguales, has ganado un premio de categoria ESPECIAL");
                     cateEspe++;
                     return true;
                 }
                 cateUno++;
-                System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria 1");
+                System.out.println("Tienes : " + cont + " numeros iguales, has ganado un premio de categoria 1");
                 return true;
             case 0:
-                System.out.println("no has ganado en ninguna categoria, suente en la siguiente partida!");
+                System.out.println("has perdido en todas categoria, suente en la siguiente partida!");
         }
         return false;
     }
