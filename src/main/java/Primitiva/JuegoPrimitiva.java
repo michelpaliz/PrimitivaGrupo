@@ -222,4 +222,26 @@ public class JuegoPrimitiva {
             bomboComputer.reset();
         }while (!ganado);
     }
+    private void jugarHastaPremioSR(){
+        boolean ganado = false;
+        do{
+            numerosComputer.setNumerosElegidos(generarRandomComputer());
+            ganado = comprobarCategoria();
+            bomboComputer.reset();
+        }while (!ganado);
+    }
+    private void sorteo1000() {
+        for(int i = 0; i < Config.SORTEO1000;i++) {
+            numerosComputer.setNumerosElegidos(generarRandomComputer());
+            comprobarCategoria();
+            bomboComputer.reset();
+        }
+        System.out.println("Has ganado la categoria 5:"+cateCinco+" veces");
+        System.out.println("Has ganado la categoria 4:"+cateQuat+" veces");
+        System.out.println("Has ganado la categoria 3:"+cateTres+" veces");
+        System.out.println("Has ganado la categoria 2:"+cateDos+" veces");
+        System.out.println("Has ganado la categoria 1:"+cateUno+" veces");
+        System.out.println("Has ganado la categoria ESPECIAL:"+cateEspe+" veces");
+
+    }
 }
