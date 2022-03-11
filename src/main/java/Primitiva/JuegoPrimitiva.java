@@ -105,5 +105,60 @@ public class JuegoPrimitiva {
                 System.out.println("Adios");
         }
     }
+    /**
+     *
+     * @return a set object which stores group of elements, it grows dynamically and
+     *         it does not allow duplicate elements.
+     */
+
+    public int[] generatorRandom() {
+        int[] arr = new int[Config.MAX_NUMERO_SUERTE];
+        for(int i = 0; i<arr.length;i++ ){
+            arr[i] = bombo49.extraerBola();
+        }
+        return arr;
+    }
+
+    private int[] generarRandomComputer(){
+        int[] arr = new int[Config.MAX_NUMERO_SUERTE];
+        for(int i = 0; i<arr.length;i++ ){
+            arr[i] = bomboComputer.extraerBola();
+        }
+        return arr;
+    }
+
+    /**
+     *
+     * @return numeros que el jugador a optado
+     */
+
+    public int[] validarNumeros() {
+        int[] numeros = new int[Config.MAX_NUMERO_SUERTE];
+        for (int i = 0; i < Config.MAX_NUMERO_SUERTE; i++) {
+            do {
+                correct = true;
+                System.out.print("Introduce un numero (del 1 al 49): ");
+                try {
+                    userInt = Integer.parseInt(myInput.nextLine());
+                    if (userInt < 1 || userInt > 49) {
+                        System.out.println("Error: Incorrect integer.");
+                        correct = false;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: El input no es un integer");
+                    correct = false;
+                }
+                for (int j = 0; j < i; j++) {
+                    if (numeros[j] == userInt) {
+                        System.out.println("Introduce un numero que no hayas escogido");
+                        correct = false;
+                        break;
+                    }
+                }
+                numeros[i] = userInt;
+            } while (!correct);
+        }
+        return numeros;
+    }
 
 }
