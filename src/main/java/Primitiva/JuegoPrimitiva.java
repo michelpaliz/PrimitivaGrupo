@@ -99,6 +99,7 @@ public class JuegoPrimitiva {
                 sorteo1000();
                 break;
             case 5:
+                jugarHastaCategoriaESP();
                 break;
             case 0:
                 System.out.println("Adios");
@@ -241,6 +242,18 @@ public class JuegoPrimitiva {
         System.out.println("Has ganado la categoria 2:"+cateDos+" veces");
         System.out.println("Has ganado la categoria 1:"+cateUno+" veces");
         System.out.println("Has ganado la categoria ESPECIAL:"+cateEspe+" veces");
+    }
 
+    private void jugarHastaCategoriaESP() {
+        cateEspe = 0;
+        boolean ganado = false;
+        do{
+            numerosComputer.setNumerosElegidos(generarRandomComputer());
+            comprobarCategoria();
+            if(cateEspe > 0) {
+                ganado = true;
+            }
+            bomboComputer.reset();
+        } while(!ganado);
     }
 }
