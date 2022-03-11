@@ -204,4 +204,22 @@ public class JuegoPrimitiva {
         return false;
     }
 
+    public JuegoPrimitiva() {
+        menu();
+        subMenu();
+    }
+
+    private void juegoUnico() {
+        comprobarCategoria();
+        System.out.println(numerosComputer.toString());
+    }
+
+    private void jugarHastaPremio(){
+        boolean ganado = false;
+        do{
+            numerosComputer.setNumerosElegidos(generarRandomComputer());
+            ganado = comprobarCategoria();
+            bomboComputer.reset();
+        }while (!ganado);
+    }
 }
