@@ -161,4 +161,47 @@ public class JuegoPrimitiva {
         return numeros;
     }
 
+    private boolean comprobarCategoria(){
+        int cont = 0;
+        for(int i = 0; i<Config.MAX_NUMERO_SUERTE; i++){
+            for(int j = 0; j <Config.MAX_NUMERO_SUERTE; j++){
+                if(numerosUser.getNumerosElegidos()[i]==numerosComputer.getNumerosElegidos()[j]){
+                    cont++;
+                }
+            }
+        }
+
+        switch (cont){
+            case 3:
+                cateCinco++;
+                System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria 5");
+                return true;
+            case 4:
+                cateQuat++;
+                System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria 4");
+                return true;
+            case 5:
+                if(numerosUser.getNumeroComp() == numerosComputer.getNumeroComp()){
+                    System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria 2");
+                    cateDos++;
+                    return true;
+                }
+                cateTres++;
+                System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria 3");
+                return true;
+            case 6:
+                if(numerosUser.getNumReintegro() == numerosComputer.getNumReintegro()){
+                    System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria ESPECIAL");
+                    cateEspe++;
+                    return true;
+                }
+                cateUno++;
+                System.out.println("Tienes : " + cont + " letras igueles, has ganado un premio de categoria 1");
+                return true;
+            case 0:
+                System.out.println("no has ganado en ninguna categoria, suente en la siguiente partida!");
+        }
+        return false;
+    }
+
 }
