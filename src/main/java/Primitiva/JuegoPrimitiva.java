@@ -58,7 +58,52 @@ public class JuegoPrimitiva {
                 System.out.println(numerosUser);
                 break;
         }
+    }
 
+    public void subMenu() {
+
+        do {
+            StringBuilder subMenu = new StringBuilder();
+            subMenu.append("****ELIGE UNA MODALIDAD DE JUEGO *****\n");
+            subMenu.append("1. Juego Unico\n");
+            subMenu.append("2.Jugar hasta obtener un premio(con reintegro)\n");
+            subMenu.append("3.Jugar hasta obtener un premio (Sin reintegro)\n");
+            subMenu.append("4.Ciclo de 10000 sorteos\n");
+            subMenu.append("5.Jugar hasta obtener premio categoria especial\n");
+            subMenu.append("************************************\n");
+            subMenu.append("0.Para Salir\n");
+            System.out.println(subMenu.toString());
+            userInt = Integer.parseInt(myInput.nextLine());
+            correct = userInt >= 0 && userInt <= 5;
+
+        } while (!correct);
+
+        numerosComputer.setNumerosElegidos(generarRandomComputer());
+        int comple = bomboComputer.extraerBola();
+        numerosComputer.setNumeroComp(comple);
+        int reintegro = r.nextInt(Config.MAX_RND-Config.MIN_RND+1)+Config.MIN_RND;
+        numerosComputer.setNumReintegro(reintegro);
+
+        switch (userInt) {
+            case 1:
+                juegoUnico();
+                break;
+            case 2:
+                jugarHastaPremio();
+                break;
+            case 3:
+                jugarHastaPremioSR();
+                numerosUser.setNumReintegro(0);
+                break;
+            case 4:
+                sorteo1000();
+                break;
+            case 5:
+                jugarHastaCategoriaESP();
+                break;
+            case 0:
+                System.out.println("Adios");
+        }
     }
 
 }
