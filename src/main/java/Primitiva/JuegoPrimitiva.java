@@ -99,7 +99,6 @@ public class JuegoPrimitiva {
                 sorteo1000();
                 break;
             case 5:
-                jugarHastaCategoriaESP();
                 break;
             case 0:
                 System.out.println("Adios");
